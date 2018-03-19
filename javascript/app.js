@@ -1,14 +1,16 @@
+var maxFM_Results = 10;
+
 // last FM query
 // query on click
 $("#me").on("click", function() {
   //get artists name
-  var artist = "temp";
+  var artist = "snoop+dogg";
 
   // last FM keys
   var APIkey = "939610d3ede414a19a0eef9dd79b91ec";
   var sharedSecret = "326d21aff9cb4cb41af3e3bf2ae1e2c3";
   var lastFMURL =
-    "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" +
+    "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&user=rj&artist=" +
     artist +
     "&api_key=" +
     APIkey +
@@ -19,6 +21,10 @@ $("#me").on("click", function() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
+    //loops and prints out top 10 tracks and the albums
+    for(var count = 0; count < maxFM_Results; count++){
+      console.log(count, " Track: ",response.toptracks.track[count].name);
+    }
   });
 });
 
