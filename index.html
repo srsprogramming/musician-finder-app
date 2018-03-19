@@ -10,20 +10,37 @@
 </head>
 
 <body>
-    <div>
-        <header>
 
-        </header>
-    </div>
-    <div id="main-content">
-        <!--Placeholder-->
-        <div id="login">
-            <!--Placeholder-->
+        <header id="loginhead">
+        <div id="jamseshtitle">
+          <h1>JamSesh</h1>
         </div>
-        <div id="news">
-            <!--Placeholder-->
-        </div>
+        <div id="userlogin">
+          <form>
+            <ul>
+          <li>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+          </li>
+          <li>
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password">
+            <button id="loginbutton">
+              Log In
+            </button>
+          </li>
+        </ul>
+      </form>
     </div>
+      </header>
+
+    <section id="main-content">
+        <div id="logo">
+        </div>
+
+        <div id="usersetup">
+        </div>
+      </section>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/app.js"></script>
