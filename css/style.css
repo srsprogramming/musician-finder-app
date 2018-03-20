@@ -1,0 +1,45 @@
+body {
+  background: grey;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+  }
+
+  #loginhead {
+    background: green;
+    color: white;
+    height: 125px;
+    width: 100%;
+    padding: 0px 25px 0px 25px;
+    border: 2px solid darkgreen;
+  }
+
+  #jamseshtitle {
+    float: left;
+    margin-top: 15px
+  }
+
+  #userlogin {
+    float: right;
+    margin-top: 30px;
+  }
+
+   #userlogin li:last-child {
+    margin-left: 5px;
+  }
+
+  #loginbutton {
+    background: grey;
+    color: white;
+    margin-bottom: 5px;
+  }
+
+ul {
+  list-style-type: none;
+}
+
+#loginbox {
+  width: 80%;
+}
+
+#buttonbox {
+  width: 20%;
+}
