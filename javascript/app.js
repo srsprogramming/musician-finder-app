@@ -68,17 +68,32 @@ function initMap() {
         }
         );
     };
+    $("#loginbutton").click(function(e){
+        e.preventDefault();
+        var username = $("username").val().trim();
+        var password = $("password").val().trim();
+        checkLogin(username, password);
+        window.location = "profile.html";    
+});
+
+function checkLogin (username, password){
+database.ref("/passwords")
+}
 
 
 // Initialize Firebase (Gian's firebase)
-// var config = {
-//     apiKey: "AIzaSyDotrB-gPmp_vfr4WkVxDvPx416pRtF4YI",
-//     authDomain: "fir-dfa77.firebaseapp.com",
-//     databaseURL: "https://fir-dfa77.firebaseio.com",
-//     projectId: "fir-dfa77",
-//     storageBucket: "fir-dfa77.appspot.com",
-//     messagingSenderId: "974979660205"
-//   };
-//   firebase.initializeApp(config);
-//
+var config = {
+    apiKey: "AIzaSyDotrB-gPmp_vfr4WkVxDvPx416pRtF4YI",
+    authDomain: "fir-dfa77.firebaseapp.com",
+    databaseURL: "https://fir-dfa77.firebaseio.com",
+    projectId: "fir-dfa77",
+    storageBucket: "fir-dfa77.appspot.com",
+    messagingSenderId: "974979660205"
+  };
+  firebase.initializeApp(config);
+
 // code for saving login data to firebase
+var database = firebase.database();
+var logindata = database.child("login");
+var test = "test";
+logindata.push(test);
