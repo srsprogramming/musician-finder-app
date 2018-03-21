@@ -3,8 +3,8 @@ var maxFM_Results = 10;
 // last FM query
 // query on click
 $("#me").on("click", function() {
-  //get artists name
-  var artist = "snoop+dogg";
+  //get artists name from profile currently testing
+  var artist = "metallica";
 
   // last FM keys
   var APIkey = "939610d3ede414a19a0eef9dd79b91ec";
@@ -23,19 +23,52 @@ $("#me").on("click", function() {
     console.log(response);
     //loops and prints out top 10 tracks and the albums
     for(var count = 0; count < maxFM_Results; count++){
-      console.log(count, " Track: ",response.toptracks.track[count].name);
+
+      // console.log(count, " Track: ",response.toptracks.track[count].name);
+      var newTrack = $("<p>");
+      newTrack.html((count+1) + ". "+ response.toptracks.track[count].name);
+      $("#top-tracks").append(newTrack);
     }
   });
 });
 
-// ajax call to map API (google or openMaps)
-// var mapQueryURL;
-// $.ajax({
-//     url: mapQueryURL,
-//     method: "GET"
-//   }).then(function(response) {
+var Latitude = "";
+var Longitude = "";
+var zip = "75248";
+var url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip;
+console.log(url)
+//creates map
+function initMap() {
+    $.ajax({
+        url: url,
+        method: "GET"
+    })
+        .then(function (response) {
+            Latitude = response.results[0].geometry.location.lat;
+            Longitude = response.results[0].geometry.location.lng;
+            console.log(Latitude, Longitude);
+            var latlong = { lat: Latitude, lng: Longitude };
+            console.log(latlong)
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 9,
+                center: latlong
+            });
+            //creates marker
+            var marker = new google.maps.Marker({
+                position: latlong,
+                map: map
+            });
+            //creates circle
+            var circle = new google.maps.Circle({
+                map: map,
+                radius: 40233.6,    // 10 miles in metres
+                fillColor: '#AA0000'
+            });
+            circle.bindTo('center', marker, 'position');
+        }
+        );
+    };
 
-//   });
 
 // Initialize Firebase (Gian's firebase)
 // var config = {
