@@ -31,43 +31,76 @@ $("#me").on("click", function() {
     }
   });
 });
-
-var Latitude = "";
-var Longitude = "";
-var zip = "75248";
-var url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip;
-console.log(url)
+var miles="";
+var distance = "";
+var latlong1 = {};
+var latlong2 = {};
+var Latitude1 = "";
+var Longitude1 = "";
+var Latitude2 = "";
+var Longitude2 = "";
+var zip1 = "75158";
+var zip2 = "75159";
+var url1 = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip1;
+var url2 = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip2;
+console.log(url1, url2)
 //creates map
 function initMap() {
-    $.ajax({
-        url: url,
-        method: "GET"
-    })
-        .then(function (response) {
-            Latitude = response.results[0].geometry.location.lat;
-            Longitude = response.results[0].geometry.location.lng;
-            console.log(Latitude, Longitude);
-            var latlong = { lat: Latitude, lng: Longitude };
-            console.log(latlong)
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 9,
-                center: latlong
-            });
-            //creates marker
-            var marker = new google.maps.Marker({
-                position: latlong,
-                map: map
-            });
-            //creates circle
-            var circle = new google.maps.Circle({
-                map: map,
-                radius: 40233.6,    // 10 miles in metres
-                fillColor: '#AA0000'
-            });
-            circle.bindTo('center', marker, 'position');
-        }
-        );
-    };
+            $.ajax({
+                url: url1,
+                method: "GET"
+            })
+                .then(function (response) {
+                    Latitude1 = response.results[0].geometry.location.lat;
+                    Longitude1 = response.results[0].geometry.location.lng;
+
+                    console.log(Latitude1, Longitude1);
+
+                    latlong1 = { lat: Latitude1, lng: Longitude1 };
+                    console.log(latlong1)
+                });
+            $.ajax({
+                url: url2,
+                method: "GET"
+            })
+                .then(function (response) {
+                    Latitude2 = response.results[0].geometry.location.lat;
+                    Longitude2 = response.results[0].geometry.location.lng;
+
+                    console.log(Latitude2, Longitude2);
+
+                    latlong2 = { lat: Latitude2, lng: Longitude2 };
+                    console.log(latlong2)
+
+                    computeDistance(latlong1, latlong2);
+                    getMiles();
+                    musicianCreate();
+                });
+        
+}
+
+function computeDistance(ll1, ll2) {
+    var loc1 = new google.maps.LatLng(ll1.lat, ll1.lng);
+    var loc2 = new google.maps.LatLng(ll2.lat, ll2.lng);
+    distance = google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
+    console.log(distance);
+}
+function getMiles() {
+    miles=distance * 0.000621371192
+    miles=miles.toPrecision(2);
+    console.log(miles);
+}
+function musicianCreate(){
+    if(miles<25){
+        $('<div/>', {
+            class: 'musician',
+            href: 'http://google.com',
+            title: 'Become a Googler',
+            text: 'Drummer '+miles+' away',
+            }).appendTo('#musicians');
+    }
+}
+
 
 
 // Initialize Firebase (Gian's firebase)
