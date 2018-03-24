@@ -17,54 +17,61 @@
         </div>
         <div id="userlogin">
           <form>
-            <ul>
-          <li>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" placeholder ="email">
-          </li>
-          <li>
-            <label for="password">Password:</label>
-            <input type="text" id="password" name="password" placeholder="password">
-            <button type="submit" id="loginbutton">
-              Log In
-            </button>
-          </li>
-        </ul>
-      </form>
+            <ul class="list-unstyled">
+              <li>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+              </li>
+              <li>
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password">
+                <button type="submit" id="loginbutton">
+                  Log In
+                </button>
+              </li>
+            </ul>
+          </form>
     </div>
       </header>
 
     <section id="main-content">
         <div id="logo">
+          <img src="images/black-jamsesh-logo.png" alt="jamsesh-logo" id="logo-image">
         </div>
         <div id="usersetup">
-          <h1>Sign Up</h1>
-          <h3>It's free, fun, and fulfilling.</h3>
-          <form>
-            <ul>
-          <li>
-            <input type="text" id="firstname" name="firstname" placeholder="First Name">
+          <div class="usersetup-form">
+            <h1>Sign Up</h1>
 
-            <input type="text" id="lastname" name="lastname" placeholder="Last Name">
-          </li>
-          <li>
-            <input type="text" id="newemail" name="newemail" placeholder="Email">
-          </li>
-          <li>
-            <input type="text" id="newpassword" name="newpassword" placeholder="Create Password">
-          </li>
-          <li>
-            <input type="text" id="zipcode" name="firstname" placeholder="ZIP Code">
+            <h3>It's free, fun, and fulfilling.</h3>
+            <form>
+              <ul class="list-unstyled">
+                <li>
+                  <input type="text" id="firstname" name="firstname" placeholder="First Name">
+                  <input type="text" id="lastname" name="lastname" placeholder="Last Name">
+                </li>
+                <li>
+                  <input type="text" id="newemail" name="newemail" placeholder="Email">
+                </li>
+                <li>
+                  <input type="text" id="newpassword" name="newpassword" placeholder="Create Password">
+                </li>
+                <li>
+                  <select id="selector" placeholder="Instrument of Choice">
+                    <option>Vocals</option>
+                    <option>Keyboards</option>
+                    <option>Guitars</option>
+                    <option>Bass</option>
+                    <option>Drums</option>
+                  </select>
+                  <input type="text" id="zipcode" name="firstname" placeholder="ZIP Code">
+                </li>
+              </ul>
+            </form>
 
-
-          </li>
-        </ul>
-      </form>
-
-      <button id="createbutton">
-        Create Account
-      </button>
-
+        <button id="createbutton">
+          Create Account
+        </button>
+          </div>
         </div>
       </section>
 
