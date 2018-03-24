@@ -3,13 +3,17 @@ body {
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   }
 
+  input {
+    color: black;
+  }
+
   #loginhead {
-    background: green;
+    background: #2E2E2E;
     color: white;
     height: 125px;
     width: 100%;
     padding: 0px 60px 0px 60px;
-    border: 2px solid darkgreen;
+    border: 2px solid #010101;
   }
 
   #jamseshtitle {
@@ -44,27 +48,47 @@ ul {
 }
 
 #logo {
+float: left;
+}
 
+#logo-image {
+  height: 360px;
+  width: 360px;
+  margin-top: 17%;
+  margin-left: 12%;
 }
 
 #usersetup {
   float: right;
-  margin-top: 65px;
+  margin-top: 60px;
   margin-right: 60px;
   height: 360px;
   width: 580px;
-  background: green;
+  background: #2E2E2E;
   color: white;
-  border: 2px solid darkgreen;
-  padding: 0px 5px 0px 5px
+  border: 2px solid #010101;
+  /* padding: 5px 20px 5px 20px */
+}
+
+.usersetup-form {
+  margin: 0 auto;
+  width: 480px;
+}
+
+#firstname {
+  width: 231px;
+}
+
+#lastname {
+  width: 232px;
 }
 
 #newemail {
-  width: 308px;
+  width: 467px;
 }
 
 #newpassword {
-  width: 308px;
+  width: 467px;
 }
 
 #usersetup h1, h3, #createbutton {
@@ -73,6 +97,16 @@ ul {
 
 #usersetup li {
   margin-bottom: 5px;
+}
+
+#selector {
+  width: 231px;
+  background: white;
+  color: grey;
+}
+
+#zipcode {
+  width: 232px;
 }
 
 #createbutton {
@@ -85,9 +119,9 @@ ul {
 }
 
 footer {
-  background: green;
+  background: #2E2E2E;
   color: white;
-  border: 2px solid darkgreen;
+  border: 2px solid #010101;
   padding-top: 50px;
   height: 120px;
   width: 100%;
@@ -96,3 +130,7 @@ footer {
   bottom: 0;
 
 }
+
+/* #2E2E2E */
+
+/* #010101 */
