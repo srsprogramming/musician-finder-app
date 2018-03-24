@@ -1,13 +1,13 @@
 $( document ).ready(function() {
     console.log( "ready!" );
-//<--------Globals----->
+//<----Globals---->
 
-// var firstName = "";
-// var lastName = "";
-// var musicalTaste = "";
-// var instruments = "";
-// var zipCode = "";
-// var zipCode2 = "";
+var firstname = "";
+var lastname = "";
+var musicalTaste = "";
+var instruments = "";
+var zipCode = "";
+var zipCode2 = "";
 var miles="";
 var distance = "";
 var latlong1 = {};
@@ -22,11 +22,15 @@ var url1 = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip1;
 var url2 = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip2;
 var maxFM_Results = 10;
 
+
+
+
+
 // last FM query
 // query on click
 $("#me").on("click", function() {
   //get artists name from profile currently testing
-  var artist = "metallica";
+  var artist = musicalTaste;
 
   // last FM keys
   var APIkey = "939610d3ede414a19a0eef9dd79b91ec";
@@ -92,13 +96,11 @@ function getMiles() {
 function musicianCreate(){
     if(miles<25){
         var addm= $("<p>");
-        addm.html('Drummer '+miles+' away').appendTo('#musicians');
+        addm.html(instruments+' '+miles+' away').appendTo('#musicians');
     }
 }
 
-
-//<----------------------FIREBASE------------------------->
-  // Initialize Firebase
+//<-----------------firebase-------------------->
 var config = {
     apiKey: "AIzaSyAIxmjvOnZhdckoJ4pAiOCarAWCM0tNn84",
     authDomain: "musician-finder-app.firebaseapp.com",
@@ -110,28 +112,15 @@ var config = {
 firebase.initializeApp(config);
 
 var signUpData = firebase.database();
-$("#newuserbutton").on("click", function(){
-    console.log("lllllll");
-	var firstName = $("#firstName").val().trim();
-    var lastName = $("#lastName").val().trim();
-    var musicalTaste = $("#musicalTaste").val().trim();
-    var instruments = $("#instruments").val().trim();
-    var zipCode = $("#zipCode").val().trim();
-    var zipCode2 = $("#zipCode").val().trim();
-	var newUser = {
-		firstName:  firstName,
-		lastName: lastName,
-        musicalTaste: musicalTaste,
-        instruments: instruments,
-        zipCode: zipCode,
-        zipCode2: zipCode2,
-	};
-	signUpData.ref().push(newUser);
-	$("#firstName").val("");
-	$("#lastName").val("");
-	$("#musicalTaste").val("");
-    $("#zipCode").val("");
-    $("#instruments").val("");
-	return false;
+
+signUpData.ref().on("value", function(childSnapshot, prevChildKey){
+console.log(childSnapshot)
+    firstName = childSnapshot.val().firstName;
+    lastName = childSnapshot.val().lastName;
+    musicalTaste= childSnapshot.val().musicalTaste;
+    instruments = childSnapshot.val().instruments;
+    zipCode = childSnapshot.val().zipCode;
+    zipCode2 = childSnapshot.val().zipCode2;
+    
 });
 });

@@ -54,17 +54,17 @@ ul {
   height: 360px;
   width: 580px;
   background: green;
-  color: white;
+  color: black;
   border: 2px solid darkgreen;
   padding: 0px 5px 0px 5px
 }
 
-#newemail {
-  width: 308px;
+#musicalTaste {
+  width: 336px;
 }
 
-#newpassword {
-  width: 308px;
+#instruments {
+  width: 336px;
 }
 
 #usersetup h1, h3, #createbutton {
