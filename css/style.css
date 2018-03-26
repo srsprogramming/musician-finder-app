@@ -1,3 +1,5 @@
+/* INDEX CSS */
+
 body {
   background: grey;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
@@ -7,7 +9,7 @@ body {
     color: black;
   }
 
-  #loginhead {
+  #runninghead {
     background: #2E2E2E;
     color: white;
     height: 125px;
@@ -47,11 +49,11 @@ ul {
   width: 100%;
 }
 
-#logo {
+#big-logo {
 float: left;
 }
 
-#logo-image {
+#big-logo-image {
   height: 360px;
   width: 360px;
   margin-top: 17%;
@@ -131,6 +133,30 @@ footer {
 
 }
 
-/* #2E2E2E */
+/* PROFILE CSS */
 
-/* #010101 */
+#small-logo-image {
+  height: 100px;
+  width: 100px;
+  float: right;
+  margin-top: 10px;
+}
+
+#profilepic {
+  margin-top: 10%;
+  margin-left: 4%;
+  float: left;
+}
+
+#viewercontent {
+  float: right;
+  margin-top: 40px;
+  margin-right: 4%;
+  padding-left: 50px;
+  height: 400px;
+  width: 800px;
+  background: #2E2E2E;
+  color: white;
+  border: 2px solid #010101;
+  overflow: scroll;
+}
