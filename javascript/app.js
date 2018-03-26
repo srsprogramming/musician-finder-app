@@ -71,8 +71,10 @@ function musicianCreate() {
   // }
 }
 
-//document ready function
 
+
+
+//document ready function
 $(document).ready(function() {
   var forEachComplete = false;
   var childCount = 0;
@@ -139,5 +141,11 @@ $(document).ready(function() {
         }
       });
     }
+    
   });
-});
+  $("#create-button").on("click", function(){
+    console.log("buttonclicked");
+    event.preventDefault();
+    window.location.href = "profile.html";
+  });
+})
