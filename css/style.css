@@ -115,9 +115,16 @@ float: left;
   background: grey;
   color: white;
   height: 72px;
-  width: 158px;
-  margin-left: 62%;
+  width: 232px;
   font-size: 20px;
+  float: right;
+  margin-right: 2.5%;
+}
+
+#lastfm {
+  height: 72px;
+  width: 231px;
+  float: left;
 }
 
 footer {
